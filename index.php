@@ -1,409 +1,224 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+	   <?php session_start();?>
+
+	    
+	<?php 
+		  if(isset($_SESSION['id']) && isset($_SESSION['email']))
+		   {
+
+		?>
+
+		<?php include "db_connection.php";?>
+	
+		<?php include "head.php";?>
+		<?php include "header.php";?>
+
+
+	   <link rel="stylesheet" href="css/style_admin.css"/>
+	    <link rel="stylesheet" href="css/fontawesom4.css"/>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <link href=" images/logo/url-logo.png" rel="icon">   
+
+    <title>Dashboard </title>  
+	
+
+	   <style>
+
+
+			  .tp{
+					text-align: start;
+    				padding-left: 20px;
+					font-weight: 600;
+    				color: #93147ded;
+
+					}
+
+
+			 .ankertag{
+						      background-color: #330a6721;
+							    width: 100%;
+							    line-height: 32px;
+							    border-radius: 2px;
+							    font-weight: 700;
+							    font-size: 17px;
+					}
+
+			  .ankertag a{
+						   font-size:17px;
+						   font-weight:bold;
+						}
+
+
+
+			  .placeholders{
+							   background-color:#f5f5f5;
+							   height:100px; 							   
+							   border-radius:7px;
+						}
+
+			 .ankertag:hover{
+									 background-color:#0a614724;  									 
+							}                                     
+			   a:hover{
+				   text-decoration:none;
+
+				}
+
+
+
+	  </style>
+
+  </head>
+
+  <body>
+
+	   <section class="admin-page mt-40" >
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+          <h1 class="page-header"><span class="color-r font-w"><i class="fa fa-dashboard"></i>  Dash</span><span class="color-blu">board</span></h1>
+
+			<?php 	// this error successfully registered patient
  
-	<html>
-	   <head>
+										 	if(isset($_GET['error'])){ 
+											  echo $_GET['error'];
+											}
+			
 
-			  <?php
-					include("head.php"); 
-					 include("header.php"); 
-					
-			?> 
-
-		<link rel="stylesheet" href="css/bootstrap3.css">
-		
-		<link rel="stylesheet" href="css/bootstrap3_icon.css">
-
-		 <link rel="stylesheet" href="css/style.css">
-
-		  <link rel="stylesheet" href="css/media_query.css.css">
-
-		 <title>Hospital</title>  			 
-		
-	</head>
-
-<body>
-
-	   <!-- start Banner section home page or index page -->
-
-		<section class="banner mt-m-20 " id="loder-gif">
-			   <div class="container"> 
-					<div  class="row">
-					 <div class="col-sm-12"> 
-						      <div class="col-sm-12 col-md-6 col-lg-6">
-
-								  <h3 class="color-r mt-40"><i class="fas fa-map-marker-alt"></i> India noida sector 63  </h3>
-						 
-								  <h1 class="color-b mt-40"><span class="welcom">|</span> <span class="welcom-H"> <i class="fa fa-hospital-o" aria-hidden="true"></i>  <link href=" image/url-logo.png" rel="icon">    Welcome to Unix Hospital</span>  </h1>
-						 
-								
-								  <div class="drowp-down-banner">
-									   
-									   <ul>
-											<li><i class="fa fa-angle-double-right"></i> Best services provide  </li>
-											<li><i class="fa fa-angle-double-right"></i> Best recored in opration Thoracoscopy  </li>
-											<li><i class="fa fa-angle-double-right"></i> Bronchoscopy</li>
-											<li><i class="fa fa-angle-double-right"></i> Emergency Room dail toll free: 23423  </li>
-
-
-												<div class=" pt-20 loginlinks font-w-n "> 											 	 
-											 	  <a href="login.php">Know more</a>
-											  </div> 
-																    
-
-									    </ul>
-
-								  </div>
-
-
-							  </div>
-						      
-					  </div> 
-
-			   </div>  
-
-		 </section>
-                   
-	 <!-- end Banner section home page or index page -->
-
-                        
-	 <!-- start about us section home page or index page -->
-
-
-			 <section class="about-us mt-40">
-			   <div class="container"> 
-					<div  class="row">
-					 <div class="col-sm-12"> 
-
-								   
-							   <div class=" about-text col-sm-12 col-md-7 col-lg-7 text-justify">  
-								 
-								   <h2 class="color-r font-bold "><span class="welcom">|</span> <span class="welcom-H"> The <span class="color-r"> Unix Hospital </span>  Noida Sector 63</span>   </h2>
-										 
-										<p><span class="welcom-H color-red"> The building trusted website online sector </p>
-										<p>	<i class="fas fa-map-marker-alt"></i> noida sector 63 </span></p>
-
-									<p class="mt-20 ">
-										Requirements. Unix Hospital appeared in 2015, and in 2016, the organization was framed into a legitimate company. 
-										In any case, it effectively began filling in as a completely incorporated drug organization in 2014.
-
-									</p>
-
-
-										<p class="mt-20 ">
-										requirements. Seamus Pharma appeared in 2015, and in 2016, the organization was framed into a legitimate company. 
-										In any case, it effectively began filling in as a completely incorporated drug organization in 2014.
-
-									</p>
-								
-
-										
-							   </div>
-
-
-						      <div class=" about-image-main col-sm-12 col-md-5 col-lg-5"> 
-									   <div class="about-image mt-30">
-										 <img src="image/unix.jpg" alt="no logo">
-							</div>      </div>
-						      
-					  </div> 
-
-			   </div>  
-
-		 </section>
-
-                    
-	 <!-- end about us section home page or index page -->
-                                    
-
-	 	 <!--*************************         start appoinment   section home page or index page  *********************     -->
-            
-
-<section class="appoinment "id= "appoinment">
-<div class="container"> 
-	<div  class="row">
-	 <div class="col-sm-12 mt-40">
-		 
-	            <div class="appoinment-text col-sm-12 col-md-5 col-lg-5"> 
-				   
-					     <h2 class="color-r ml-20"><span class="welcom">|</span> <span class="welcom-H"> APPOINTMENT  <span class="color-r"> <i class="fa fa-address-book-o"></i> BOOKING</span></span>  </h2>
-
-
-						  	<p class="ml-20 mt-20 ">
-								Requirements. Unix Hospital appeared in 2015, and in 2016, the organization was framed into a legitimate company. 
-								In any case, it effectively began filling in as a completely incorporated drug organization in 2014.
-
-							</p>
-
-								<p class="ml-20 mt-20 ">
-								The organization was framed into a legitimate company. 
-								In any case, it effectively began filling in as a completely incorporated drug organization in 2014.
-
-							</p>
-
-
-	        	</div>
-
-
-
-
-
-
-
-			   <div class="appoinment-form col-sm-12 col-md-7 col-lg-7 text-justify">  
-				                
-											
-					<form action="save_appointment.php" method="POST" class="form-control control_form mt-20">
-
-						  <div class="name_reg"><h2><i class="fa fa-address-book-o"></i> APPOINTMENT</h2></div>
-
-						 <div class="form-group mt-60"> 	
-						
-							 <input type="text" name="name" class="form-control input"  placeholder="Enter Name" required="">
-
-						    <input type="email" name="email"class="form-control input"   placeholder="Enter Email" required="">
-
-							 <input type="text" name="mobile" class="form-control input"  placeholder="Enter Mobile" maxlength="10" minlenght="10" required=""/>
-
-						     <select name="gender" class="form-control input">
-								<option value="">choose gender</option>
-								<option value="male">male </option>
-								 <option value="female">female</option>
-								 <option value="other">other</option>
-
-
-							 </select>
-
-
-						  <textarea type="text" name="messege" class="form-control input" rows="3" placeholder="Messege" required=""></textarea>
-							
-						  </div>
-								
-
-
-						  <input type="submit" value="Sand" name="submit" class=" mt-20 btn btn-primary button" />
-
-							<?php
-								   if(isset($_GET['error']))
+                
+									if(@$_SESSION['add_admin'])
 									{
-									 echo $_GET['error'];
+									  echo $_SESSION['add_admin'];
 
-									 }
+									  $_SESSION['add_admin']='';
+									}
 
-									?>
 
+									
+									if(@$_SESSION['update_p'])
+									{
+									  echo $_SESSION['update_p'];
 
+									  $_SESSION['update_p']='';
+									}
 
-					</form> 										
-			   </div>
 
-               						      
-	  </div> 
 
-</div>  
 
-</section>
 
 
+									
+?>
 
 
-	  <!--*************************         end appoinment  section home page or index page  *********************     -->
+         <div class="row ">
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 ">
 
+ 				<div class="  placeholders">
+          			<h3 class="pt-20 tp" ><i class="fa fa-dashboard"></i> Dashboard</h3>
+                	<a href="index.php"> <div class="ankertag mt-20 ">  more info <i class="fa fa-angle-double-right"></i>  </div> </a> 
+				 </div> 
+            </div>
 
 
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 ">
 
+ 				<div class="  placeholders">
+          			<h3 class="pt-20 tp" ><i class="fa fa-user"></i> Admin member Profile</h3>
+                	<a href="user.php"> <div class="ankertag mt-20 ">  more info <i class="fa fa-angle-double-right"></i>  </div> </a> 
+				 </div> 
+            </div>
 
 
 
+		  <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 ">
 
+ 				<div class="  placeholders">
+          			<h3 class="pt-20 tp" ><i class="fa fa-users"></i> All Patient</h3>
+                	<a href="all_users.php"> <div class="ankertag mt-20 ">  more info <i class="fa fa-angle-double-right"></i>  </div> </a> 
+				 </div> 
+            </div>
 
 
-	    <!--*************************         start news & updates   section home page or index page  *********************     -->
-																					   
 
-		    <section class="news-updates mt-10">
-			   <div class="container"> 
-					<div  class="row ">
-					 <div class="col-sm-12">
-								  <h2 class="color-r ml-20 text-center"> News & Updates <img src="image/news.gif" alf="no gif "> </h2>
 
-							            		
 
-									     
+		  
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 ">
 
-										<div class="news-box col-xs-12 col-sm-6 col-md-3 col-lg-3">
-											<div class="free-eye news-hover font-math"> 
-												<h3 class="ml-20 p-10"><i class="fa fa-eye"></i> Free Eye	</h3>
-												<p class="plr-10">
-													
-													check the Free eye 70th years old ! plese take appointments.  
-												</p>
-										      </div>
-  				        	    		   </div>
-
-
-
-
-
-
-
-										<div class=" news-box col-xs-12 col-sm-6 col-md-3 col-lg-3">
-											<div class="stethoscope news-hover font-math"> 
-												<h3 class="ml-20 p-10"><i class="fa fa-stethoscope"></i> Stethoscope	</h3>
-												<p class="plr-10">
-													
-													check the Stethoscope! plese take appointments.  
-												</p>
-										      </div>
-  				        	    		   </div>
-
-
-
-
-
-
-										  <div class="news-box col-xs-12 col-sm-6 col-md-3 col-lg-3">
-											<div class="ambulance news-hover font-math"> 
-												<h3 class="ml-20 p-10"><i class="fa fa-ambulance"></i> Help Us ?	</h3>
-												<p class="plr-10">
-													
-													Help! the dail toll  free No: 1019 for delivery pecent.   
-												</p>
-										      </div>
-  				        	    		   </div>
-                                       
-
-
-									    <div class=" news-box col-xs-12 col-sm-6 col-md-3 col-lg-3"> 
-
-											<div class="heart-Care news-hover font-math"> 
-												<h3 class="ml-20 p-10"><i class="fa fa-heartbeat"></i> heart Care	</h3>
-												<p class="plr-10">
-
-													   	Help! check Heart beat & treatmets less amount.  
-												</p>
-										   </div>
-  				        	    		</div>
-                                            
-
-
-                               						      
-					  </div> 
-
-			   </div>  
-
-		 </section>
-
-         
-
-
-	  <!--*************************         end news & updates section home page or index page  *********************     -->
-                                           
-
-                                          
-	                  
-	 <!--*************************         start about docter  section home page or index page  *********************     -->
-                                        
-
-		   <section class="about-docter mt-40">
-
-				<h2 class="color-r mt-40 text-center"><span class="welcom">|</span> <span class="welcom-H">Docter Messege</span>  </h2>
-
-
-			   <div class="container"> 
-					<div  class="row ">
-
-					 <div class="col-sm-12 box-docter"> 
-
-								  
-
-
-								 
-							            <div class=" about-docter-image col-sm-12 col-md-5 col-lg-5"> 
-										   <div class="about-image text-center">
-											 <img src="image/docter.png" alt="no logo">
-										   </div>      
-							        	</div>
-
-
-													
-
-
-
-
-							   <div class=" about-docter-text col-sm-12 col-md-7 col-lg-7 text-justify">  
-								                
-									<p class="mt-20 ">
-
-									<span class=" color-r">	|Dr Pratima singh (MBBS, MS ,General physiclogy) </span>is having vast experience in treating complicated respiratory 
-										diseases, tuberculosis Interstitial lung diseases pleural diseases and sleep disorders, Doing Diagnostic and therapeutic, 
-										Bronchoscopy, Biopsies, Pleurodesis & other pleural interventions and sleep studies. He has also completed "National course on 
-										educational science for health professinal" of national teacher's training center, ministry of health govt of India. He was coguide 
-										for post 
-										graduate research projects related to Interstitial preumonitis & DLCO in COPD.
-								</p>
-
-
-										<p class="mt-20 ">
-										the  extensive experience, Dr promod is the most trustworthy and recognized doctor in 
-										Pulmonology field. He has established “Unix Hospital in Lucknow” which is the advanced respiratory set-up in Lucknow. Dr parmode Chaubey has
-										 a huge experience in handling all types of complicated respiratory ailments along with other chest related procedures with high success rate.
-										</p>
-
-
-									   	<p class="mt-20 ">
-									 	 Always Preferred experienced doctor for treatment related to all kinds of chest diseases, lung diseases, and respiratory diseases. Dr Y N 
-										Chaubey aims to provide the best of medical treatment and care to all his patients.
+ 				<div class="  placeholders">
+          			<h3 class="pt-20 tp" ><i class="fa fa-edit"></i> Edit User</h3>
+                	<a href='edit_users.php'> <div class="ankertag mt-20 ">  more info <i class="fa fa-angle-double-right"></i>  </div> </a> 
 								
-									</p>
+	 </div> 
+            </div>
+
+
+		    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 ">
+
+ 				<div class="  placeholders">
+          			<h3 class="pt-20 tp" ><i class="fa fa-phone"></i> Contact us</h3>
+                	<a href="contactus.php"> <div class="ankertag mt-20 ">  more info <i class="fa fa-angle-double-right"></i>  </div> </a> 
+				 </div> 
+            </div>
+
+
+
+		   <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 ">
+
+ 				<div class="  placeholders">
+          			<h3 class="pt-20 tp" ><i class="fa fa-book"></i> Appointment us</h3>
+                	<a href="appointment.php"> <div class="ankertag mt-20 ">  more info <i class="fa fa-angle-double-right"></i>  </div> </a> 
+				 </div> 
+            </div>
+
+
+			<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 ">
+
+ 				<div class="  placeholders">
+          			<h3 class="pt-20 tp" ><i class="fa fa-sign-out"></i> Logout</h3>
+                	<a href="logout.php"> <div class="ankertag mt-20 ">  more info <i class="fa fa-angle-double-right"></i>  </div> </a> 
+				 </div> 
+            </div>
 
 
 
 
-								
-										  <p>	<span class="welcom-H color-red  float-right">Dr: Pratima singh</span></p>
+					<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 ">
 
-										
-							   </div>
-
-
-
-
-
-						      
-					  </div> 
-
-			   </div>  
-
-		 </section>
-
-         
-
-
-	  <!--*************************         end about docter  section home page or index page  *********************     -->
-
-
-		   <?php
-
-			  include"footer.php";
-
-				?>
-
-
-
-
-
-</div>
-
-
-
-
-	</body>
-	</html>
-
+		 				<div class="  placeholders">
+		          			<h3 class="pt-20 tp" ><i class="fa fa-user-secret"></i> Add Anothe admin</h3>
+		                	<a href="add_another_accounts.php"> <div class="ankertag mt-20 ">  more info <i class="fa fa-angle-double-right"></i>  </div> </a> 
+						 </div> 
+		      </div>
 
 
 
 
 
+			</div>
+          </div>
+	   </section>
+       
+	
+
+				<?php 
+					}
+
+					?>
 
 
+
+
+
+
+
+  </body>
+</html>
 

@@ -1,253 +1,139 @@
-<html>
-	   <head>       
-
-				    <!--   titel & url pe jo image show ho rhi hai         -->   
-
-			  <link href=" image/url-logo.png" rel="icon">   
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 
 
+<!DOCTYPE html>
+<html lang="en">
+  <head>
 
-			  <?php
-					include("head.php"); 
-					include("header.php"); 
+		  <?php session_start();?>
+		  
+	  <?php
+		  if(isset($_SESSION['id']) && isset($_SESSION['email']))
+		   {
+		?>      	
+		<?php include "db_connection.php";?>
 
-					?>
-					 	<link rel="stylesheet" href="css/bootstrap3.css">
-					
-					<link rel="stylesheet" href="css/bootstrap3_icon.css">
+		<?php include "head.php"; ?>
+		<?php include "header.php";?>  
 
-					 <link rel="stylesheet" href="css/style.css">
+	   <meta name="viewport" content="width=device-width, initial-scale=1">   
+	   <link rel="stylesheet" href="..css/style_admin.css"/>
+	   <link rel="stylesheet" href="css/fontawesom4.css"/>  
+      <link href=" images/logo/url-logo.png" rel="icon">   
 
-					  <link rel="stylesheet" href="css/media_query.css.css">
+		  <style>
+		 
 
+		  </style>
 
+    <title>Contact us </title>
+	
+  </head>
 
-				 <title>Contact us</title>
-			 
-		
-			 <style>
+  <body>
 
-					   .pt-20{
-							    padding-top:20px;
-							}
+		   <section class="contact-page mt-40" >
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+          <h1 class="page-header"><span class="color-blu font-w"><i class="fa fa-phone"></i> Conta</span><span class="color-r font-w">cts  Details</span></h1>
+			 <div class="row placeholders"> 
+		     <div class="row placeholders">              
+			<h4 class="tp ">!! Appointment messege </h4>
 
-				 .contact{
-							 	height:590px;
+												   <?php
+									if(@$_SESSION['delete'])
+									{
+									  echo $_SESSION['delete'];
 
-							}
-
-
-
-
-					.contacts-form{
-
-									height:420px !important;
-									background-color:#f5f5f6;
-
+									  $_SESSION['delete']='';
 									}
-				   
 
-	.contacts-form   h3{
-						 background: linear-gradient(91deg,rgb(157 22 22),rgb(57 33 133));
-					    border-radius: 9px;
-					    padding: 20px 0px;
-						color:white;
-						text-align:center;
-						
-					  }
+								  ?>
+                                             
+			 <div class="  table text-center  mt-20">
 
+				  <table   cellspacing="5px" cellpadding="10px" width="100%" class="  table table-hover   table-responsive">
 
-		   .contacts-map{
-									height:420px;
-									background-color:#f0f8ff3d;
-									padding;0px 30px;
-								    border-radius: 14px;
+					  <thead>
+							<tr>
+							  <th>Contact Id</th>
+							  <th>Name</th>
+							 <th>mobile</th>
+							  <th>subject</th>
+							  <th>messege</th>
+							  <th>Delete</th>
 
-
-						}
+							</tr>
+					  </thead>  
 
 
 
-			 @media(min-width:320px)
-			{
-					 .contact{
-									   	height:1050px;
-										width:100%;
-							   }
-
-
-				  .contact .contact-form{
-										  width:100%;
-										  height:530px;
-										  margin-top:10px;;
-										background-color:red;
-
-
-						}
-
-
-			.contact .col-xs-12
+						  <?php    
+								   $con= mysqli_connect('localhost','root','', 'hospital');
+							 
+								   $sql="select * from  contact_us ";
+							
+								   $result=mysqli_query($con , $sql);
+								   
+									if(mysqli_num_rows($result)>0)
 									 {
+							     
+							  while($row= mysqli_fetch_assoc($result))
+							 
+							   {
+							  ?>
 
+						<tbody>
 
-										margin-top:30px
+							 <tr>
+
+						   
+
+								<td><?php echo $row['id'];?></td>
+								<td><?php echo $row['name'];?></td> 							
+								<td><?php echo $row['mobile'];?></td>
+								<td><?php echo $row['subject'];?></td>
+								<td><p><?php echo $row['messege'];?> </p></td> 
+								
+                                	<td> <a href="delete_contactus.php?id= <?php echo ($row['id']); ?>" class="btn btn-danger btn-sm" onclick="return confirm('Do you really want to delete recored  ?');"
+							 			data-toggle="tooltip" title="Delete"><i class="fa fa-trash-o"></i>
+
+							              </a>
+									 </td>
+							</tr>
+
+					<?php		
+							 }
 								}
 
-		
-	  }
 
-                                
+							  else{
+									 echo "Record not found";
 
-		   	 @media(min-width:768px)
-			{
-					 .contact{
-									   	height:1000px;
-										width:100%;
-							   }
+								}
 
+							   ?>
 
-				  .contact .contact-form{
-										  width:100%;
-										  height:530px;
-										  margin-top:10px;;
-										background-color:red;
+						</tbody>
 
-
-						}
-
-
-			
-	  }
-
-
-		  
-		   	 @media(min-width:992px)
-			{
-					 .contact{
-									   	height:620px;
-										width:100%;
-							   }
-
-
-				  .contact .contact-form{
-										  width:100%;
-										  height:530px;
-										  margin-top:10px;;
-										background-color:red;
-
-
-						}
-
-
-			
-	  }
-                   			
-
-                                       
-			 </style>   
-
-	   </head>
-
-<body>        
-
-  <section class="contact mt-40">   
-							 <h2 class=" pt-20 text-center color-r font-bold "><span class="welcom">|</span> <span class="color-r "> Our <span class="welcom-H"> Contact Us </span> </span> </h2>
-								       
-
-   <div class="container mt-20"> 
-		<div  class="row ">                
-		 <div class="col-sm-12"> 
-
-			<div class="contact-forms col-xs-12 col-sm-12 col-md-6 col-lg-6"> 
-			  <div class="row">
-				  <div class="contacts-form form-control">
-
-					 <form action="save_contact_us.php"  method="POST" >
-
-						   <h3><b>Contact now</b> </h3>
-
-					   <div class=" mt-40">					
-
-						<div class="  col-sm-12 col-md-6 col-lg-6 form-group"> 							
-							<input type="text" name="name" class="form-control" placeholder="Enter Name" required="">                                				
-						</div>
-
-						<div class=" col-sm-12 col-md-6 col-lg-6 form-group"> 							
-							<input type="text" name="mobile" class="form-control" placeholder="Enter Mobile"  maxlength="10" minlength="10" required="">                                				
-						</div>
-
-
-
-						 <div class=" col-sm-12 col-md-12 col-lg-12 form-group"> 							
-							<input type="text" name="subject" class="form-control" placeholder="Enter Subject" required="">                                				
-						</div>
-
-
-						 <div class=" col-sm-12 col-md-12 col-lg-12 form-group"> 							
-						<textarea type="text" name="messege"class="form-control" rows="3" placeholder="Messege" required=""></textarea>
-						                     				
-						</div>
-
-						  <button type="submit" name="submit"  class=" ml-20 btn btn-primary"/> Send <i class="fa fa-send-o"></i></button>
-
-					  	</div>
-											<br>
-
-								 <?php   
-								
-									if(isset($_GET['error']))
-									   {
-										  echo $_GET['error'];
-										}
-										     
-
-								?>
+				  </table>
+			 </div>
+			 </div>
 
 
 
 
 
-					 </form>
 
-				  </div>
-			  </div>
-			</div>
+          </div>
 
-
-
-			 <div class=" contact-maps  col-xs-12 col-sm-12 col-md-6 col-lg-6"> 
-			  <div class="row">
-
-						  <div class="contacts-map ">
-
-												  
-								               <div class="bfs-location text-center">
-								                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3593.2323439026627!2d82.71010321440028!3d25.762888114840482!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39903a203d763cef%3A0x1349c25340f76474!2sUNIX+INSTITUTE!5e0!3m2!1sen!2sin!4v1520415586631" width="360" height="390" frameborder="0" style="border:0" allowfullscreen=""></iframe>
-								                        </div> 												   
-											   </div>                      
-					
-
-						  </div>
-			  </div>
-			</div>
-
-
-
-		 </div>
-		</div>
+          </div>
+        </div>
+      </div>
     </div>
-</section>
-</body>
 
-
-<?php
-
-	include "footer.php";
-?>
-
-
+					 <?php
+						}
+						?>
+  </body>
 </html>
-
-
-
 
